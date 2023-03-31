@@ -162,6 +162,22 @@ window.addEventListener("load",function(event){
   }//if
   let res = JSON.parse(localStorage.getItem("resumen"));
 
+  if (localStorage.getItem("datos")!= null ) {
+    datos = JSON.parse(localStorage.getItem("datos"));
+
+    datos.forEach(r => {
+
+        let row = `<tr> 
+          <th>${r.id}</th>
+          <td>${r.nombre}</td>
+          <td>${r.cantidad}</td>
+          <td>$ ${r.precio} pesos</td>
+        </tr>`;
+        cuerpoTabla[0].insertAdjacentHTML("beforeend", row);
+    });
+
+  }// != null es igual a si es diferente de null
+
   /* if(localStorage.getItem("contadorProductos")==null)
   {localStorage.setItem("contadorProductos","0");
   
